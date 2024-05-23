@@ -50,7 +50,7 @@ def delete_todo_item(todo_id):
     print(todo_id)
     conn = get_db_connection()
     c = conn.cursor()
-    c.execute("DELETE FROM ToDos WHERE id='?';", (todo_id,))
+    c.execute("DELETE FROM ToDos WHERE id=?;", (todo_id,))
     conn.commit()
     conn.close()
     return jsonify({'message': 'Todo item deleted successfully'})
